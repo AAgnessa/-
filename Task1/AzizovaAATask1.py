@@ -42,7 +42,6 @@ def counterNumber(array):
 #Функция счетчик времени работы программы
 def timeCounter():
     massiv=initListWithRandomNumbers()
-    maxTime, midleTime, minTime=0, 0, 0
     finalArray=[]
     for k in range(100):
         start=time.time()
@@ -53,14 +52,18 @@ def timeCounter():
     print('Максимальное время работы программы:', max(finalArray), end='\n')
     print('Среднее время работы программы:', mean(finalArray))
     print('Минимальное время работы программы:', min(finalArray))
+    return(finalArray)
 
+def plotHistogram(finalArray):
     #Построение гистограммы
     plt.hist(finalArray,edgecolor="black", bins =10)    
     plt.title("Гистограмма распределения времени работы")
     plt.xlabel("Время работы")
     plt.ylabel("Частота")
     plt.show()
-timeCounter()
+
+finalArray=timeCounter()
+plotHistogram(finalArray)
 
 
         
