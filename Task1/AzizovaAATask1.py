@@ -7,11 +7,11 @@ import matplotlib.pyplot as plt
 
 #Функция заполняющая массив элементами от 0 до 999 в количестве - 1 000 000
 def initListWithRandomNumbers():
-    array=[]
+    arrayWithRandomNumber=[]
     for i in range (1000000):
         a=random.randint(0, 999)
-        array.append(a)
-    return(array)
+        arrayWithRandomNumber.append(a)
+    return(arrayWithRandomNumber)
 
 
 #Функция перебирающая массив и считающая кол-во цифр
@@ -40,12 +40,11 @@ def counterNumber(array):
             counter[9]=counter[9]+1
 
 #Функция счетчик времени работы программы
-def timeCounter():
-    massiv=initListWithRandomNumbers()
+def timeCounter(arrayWithRandomNumber):
     finalArray=[]
     for k in range(100):
         start=time.time()
-        counterNumber(massiv)
+        counterNumber(arrayWithRandomNumber)
         end=time.time()
         timeWork=end-start
         finalArray.append(timeWork)
@@ -60,13 +59,7 @@ def plotHistogram(finalArray):
     plt.title("Гистограмма распределения времени работы")
     plt.xlabel("Время работы")
     plt.ylabel("Частота")
-    plt.show()
-
-finalArray=timeCounter()
-plotHistogram(finalArray)
-
-
-        
+    plt.show()    
 
 
 
