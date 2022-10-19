@@ -22,13 +22,13 @@ def histDistanve(hist1, hist2):
 #histDistanve([1,2,3],[4,5,6])
 
 #Функции для записи гистограмм в файл
-def funcForWriteHist(writeHist):
-    file = open("dataHist", "w")
+def funcForWriteHist(name_fale,writeHist):
+    file = open(name_fale, "w")
     file.write(writeHist)
     file.close()
 
-array_one=[[1,2,3], [4,5,6], [7,8,9]] #Массив с n мерными гистограммами
-funcForWriteHist(str(array_one))
+#array_one=[[1,2,3], [4,5,6], [7,8,9]] #Массив с n мерными гистограммами
+#funcForWriteHist(str(array_one))
 
 #Функция для чтения гистограмм из файла
 def funcForReadHist(name_fale):
@@ -38,7 +38,7 @@ def funcForReadHist(name_fale):
     lines = file.readlines()
 
     for line in lines:
-        lst = eval(line) # Преобразование строки в массив с n мерными гистограммами
+        lst = eval(line) # Преобразование строки в числовой формат
         arrayWithHist.append(lst)
     
     file.close()
