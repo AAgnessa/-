@@ -6,10 +6,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 #Функция заполняющая массив элементами от 0 до 999 в количестве - 1 000 000
-def initListWithRandomNumbers():
+#UPD: Универсальная функция для заполнения массива случайными элементами. countNumber-количество элементов в массиве, a,b - границы рандома.
+def initListWithRandomNumbers(countNumber,a,b):
     arrayWithRandomNumber=[]
-    for i in range (1000000):
-        a=random.randint(0, 999)
+    for i in range (countNumber):
+        a=random.randint(a, b)
         arrayWithRandomNumber.append(a)
     return(arrayWithRandomNumber)
 
@@ -38,6 +39,7 @@ def counterNumber(array):
             counter[8]=counter[8]+1
         elif 900<=array[j]<=999:
             counter[9]=counter[9]+1
+    return(counter)
 
 #Функция счетчик времени работы программы
 def timeCounter(arrayWithRandomNumber):
@@ -53,12 +55,14 @@ def timeCounter(arrayWithRandomNumber):
     print('Минимальное время работы программы:', min(finalArray))
     return(finalArray)
 
-def plotHistogram(finalArray):
+#Функция для построение гистограмы частоты значения времени работы программы 
+#UPD:Универсальная программа для построение гистгорамм. finalArray - массив данных необходимых для построения, name_title - название гистограммы, xб y - имя оси 
+def plotHistogram(finalArray,name_title,x,y):
     #Построение гистограммы
     plt.hist(finalArray,edgecolor="black", bins =10)    
-    plt.title("Гистограмма распределения времени работы")
-    plt.xlabel("Время работы")
-    plt.ylabel("Частота")
+    plt.title(name_title)
+    plt.xlabel(x)
+    plt.ylabel(y)
     plt.show()    
 
 
