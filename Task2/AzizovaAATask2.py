@@ -1,4 +1,5 @@
 from math import sqrt
+import os
 
 #Функция для построения равнобедренного треугольника 
 def triangle(a):
@@ -34,14 +35,16 @@ def funcForWriteHist(name_fale,writeHist):
 def funcForReadHist(name_fale):
     arrayWithHist = []
 
-    file = open(name_fale, 'r')
-    lines = file.readlines()
-
-    for line in lines:
-        lst = eval(line) # Преобразование строки в числовой формат
-        arrayWithHist.append(lst)
+    try:
+        file = open(name_fale, 'r')
+    except:
+        print("Sistem error, file not open")
+    with file:
+        lines = file.readlines()
+        for line in lines:
+            lst = eval(line) # Преобразование строки в числовой формат
+            arrayWithHist.append(lst)
     
-    file.close()
     return arrayWithHist
 
 arrayWithHist = funcForReadHist("dataHist")
