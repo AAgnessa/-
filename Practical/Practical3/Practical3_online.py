@@ -1,5 +1,6 @@
 import pygame
 import sys
+from time import sleep
 
 
 pygame.init()
@@ -42,4 +43,4 @@ while True:
                 rect.move_ip(0, -40) #если цифра 4 то наверх
 
     pygame.draw.rect(screen, (255, 255, 255), rect, 0)
-    pygame.display.flip()
+    pygame.display.update()
