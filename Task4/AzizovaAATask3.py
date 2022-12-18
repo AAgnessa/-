@@ -1,4 +1,6 @@
 import os
+import paho.mqtt.client as mqtt
+#http://www.steves-internet-guide.com/into-mqtt-python-client/
 
 #Функция для работы с терминалом. 
 #На вход принимает строку.
